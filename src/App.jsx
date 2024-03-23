@@ -10,19 +10,56 @@ import Square from './calculateSquare'
 import YetAnotherTest from "./yetanothertest"
 // import yetAnotherTest2 from './yetAnotherTest2'
 import Testagain from "./testagain"
+import Test5 from "./test5"
 import Lol from "./lol"
-import { whoosh, renderWhoosh }
+import { whoosh, renderWhoosh } from "./whoosh"
+import MUI from './MUI'
+import MUIDave2 from './MUIDave2'
+import { ThemeProvider, createTheme } from '@mui/material'
+import LetterAvatars from './Avatar'
+import ImgList from "./MUI-ImgList"
+import FloatingActionButtons from "./MUI3"
+import MUIArash from './MUIArash'
+import MUISnackbar from './MUISnackbar'
+import Backdrop2 from './MUIMeow'
+import Variants from './MUIPaper'
+
+
+
 
 function App() {
   const [count, setCount] = useState(0)
+ const theme = createTheme({
+    palette: {
+      mode: 'light',
+      primary: {
+        main: '#145604',
+      },
+      secondary: {
+        main: '#f50057',
+      },
+    }
+  });
+
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <div>
+        <FloatingActionButtons />
+        <ImgList />
+        <LetterAvatars />
+        <MUI />
+        <Backdrop2 />
+        <Variants />
+        <MUIDave2 />
         <Test />
         <David />
         <Test4 />
         <Lol />
+        <MUIArash/>
+        <MUISnackbar/>
+
+        
         <a href="https://vitejs.dev" target="_blank">
         </a>
         <a href="https://react.dev" target="_blank">
@@ -48,7 +85,7 @@ function App() {
 
       <h1> Other Things .... </h1>
       <Test2 />
-    </>
+    </ThemeProvider>
   )
 }
 
