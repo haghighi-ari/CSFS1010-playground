@@ -48,5 +48,4 @@ const itemData = [
         img: 'https://oldschool.runescape.wiki/images/Banana_tree_seed_5.png?e8ce4',
         title: 'image 7',
     }
-    
 ];

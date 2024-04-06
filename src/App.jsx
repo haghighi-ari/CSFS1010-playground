@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+// import viteLogo from '/vite.svg'
 import './App.css'
 import Test from './test'
 import Test2 from './test2'
@@ -23,6 +23,7 @@ import MUIArash from './MUIArash'
 import MUISnackbar from './MUISnackbar'
 import Backdrop2 from './MUIMeow'
 import Variants from './MUIPaper'
+import Hello from './components/Hello'
 
 
 
@@ -45,6 +46,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div>
+        <Hello />
         <FloatingActionButtons />
         <ImgList />
         <LetterAvatars />
@@ -63,7 +65,7 @@ function App() {
         <a href="https://vitejs.dev" target="_blank">
         </a>
         <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+          <img src='moreImages/vite.svg' className="logo react test" alt="React logo" />
         </a>
       </div>
       <h1><Square number={5}></Square> </h1>
