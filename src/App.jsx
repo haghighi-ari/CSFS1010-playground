@@ -10,11 +10,14 @@ import { useLocation } from 'react-router-dom';
 import { PreferenceProvider } from "./PreferenceContext";
 import { PreferenceContext } from "./PreferenceContext";
 import Hello from "./components/Hello";
+import { useLocalStorage } from "@uidotdev/usehooks";
 
 
 function App() {
     const { lightsOn, Title, toggleLights } = useLights()
     const location = useLocation()
+    const [savedName, saveName] = useLocalStorage("name", '');
+    console.log(savedName, 'savedNameApp')
     
     return <div>
         { <div>Lights are {lightsOn ? 'off': 'on'}</div>}
