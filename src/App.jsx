@@ -7,16 +7,22 @@ import MUI3 from "./MUI3";
 import MUIPaper from "./MUIPaper";
 import useLights from "./useLights";
 import { useLocation } from 'react-router-dom';
+import { PreferenceProvider } from "./PreferenceContext";
+import { PreferenceContext } from "./PreferenceContext";
+import Hello from "./components/Hello";
 
 
 function App() {
     const { lightsOn, Title, toggleLights } = useLights()
     const location = useLocation()
+    
     return <div>
         { <div>Lights are {lightsOn ? 'off': 'on'}</div>}
         <Title />
         <h1>{location.pathname}</h1>
+    <PreferenceContext.Provider value={{test:'test2'}}>
     <nav>
+        <Hello />
         <ul>
             <li>
                 <Link to="/playground">Playground</Link>    
@@ -41,6 +47,8 @@ function App() {
             </li>
         </ul>
     </nav>
+    </PreferenceContext.Provider>
+    <PreferenceProvider>
     <Routes>
         <Route path="/playground" element={<Playground />} />
         <Route index element={<MuiArash />} />
@@ -65,6 +73,8 @@ function App() {
                     routes for. */}
         <Route path="*" element={<David />} /> 
     </Routes>
+    
+    </PreferenceProvider>
     </div>
 }
 
