@@ -5,9 +5,17 @@ import MuiArash from "./MUIArash";
 import MUIMeow from "./MUIMeow";
 import MUI3 from "./MUI3";
 import MUIPaper from "./MUIPaper";
+import useLights from "./useLights";
+import { useLocation } from 'react-router-dom';
+
 
 function App() {
+    const { lightsOn, Title, toggleLights } = useLights()
+    const location = useLocation()
     return <div>
+        { <div>Lights are {lightsOn ? 'off': 'on'}</div>}
+        <Title />
+        <h1>{location.pathname}</h1>
     <nav>
         <ul>
             <li>
@@ -17,7 +25,7 @@ function App() {
                 <Link to="/arash">Arash</Link>    
             </li>
             <li>
-                <Link to="/meow">Meow</Link>    
+                <Link className={location.pathname === "/meow" ? 'active': 'inactive'} to="/meow">Meow</Link>    
             </li>
             <li>
                 <Link to="/MUI3">Mui3</Link>    
@@ -27,6 +35,9 @@ function App() {
             </li>
             <li>
                 <Link to="/paper">Paper</Link>    
+            </li>
+            <li>
+                <Link to="/david">David</Link>
             </li>
         </ul>
     </nav>
@@ -38,9 +49,11 @@ function App() {
 
         <Route path="/meow" element={<MUIMeow />} />
 
-        <Route path="/MUI3" element={<MUI3 />} />
+        <Route path="/MUI3" element={<MUI3 toggler={toggleLights} />} />
 
         <Route path="/paper" element={<MUIPaper />} />
+
+        <Route path="*" element={<David />} />
 
 
             {/* <Route index element={<Home />} />

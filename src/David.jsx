@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -9,11 +9,27 @@ import Button from '@mui/material/Button';
 
 function David() {
     const [open, setOpen] = useState(false);
+    const [name, setName] = useState('')
+    console.log(name, 'name')
+
+    function handleClickOpen() {
+        setOpen(true);  
+        setName('David')
+    }
+
+    useEffect(() => {
+        if(name) localStorage.setItem('name', name)
+    }, [name])
+
+    useEffect(() => {
+        const savedName = localStorage.getItem('name')
+        if(savedName) setName(savedName)
+    },[])
 
     return (
         <>
                 <div>
-                    <button onClick={() => setOpen(true)}>Dave
+                    <button onClick={handleClickOpen}>Dave
                     </button>
                 </div>
                 <Dialog
